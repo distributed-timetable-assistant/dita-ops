@@ -5,7 +5,7 @@ namespace: dta
 
 images:
   - name: backendd/dta.basic-scheduler
-    newTag: v0.0.1
+    newTag: v0.0.2
 
 resources:
   - ../../base
