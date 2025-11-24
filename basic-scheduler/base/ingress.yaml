@@ -6,10 +6,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - bs.st.dta.hasankarimi.ir
+        - bs.st.dita.hasankarimi.ir
       secretName: basic-scheduler
   rules:
-    - host: bs.st.dta.hasankarimi.ir
+    - host: bs.st.dita.hasankarimi.ir
       http:
         paths:
           - path: /

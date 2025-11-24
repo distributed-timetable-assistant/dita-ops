@@ -5,7 +5,7 @@ metadata:
 spec:
   secretName: pgadmin
   dnsNames:
-    - "pgadmin.st.dta.hasankarimi.ir"
+    - "pgadmin.st.dita.hasankarimi.ir"
   issuerRef:
     name: letsencrypt
     kind: ClusterIssuer
