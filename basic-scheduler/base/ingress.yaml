@@ -7,7 +7,7 @@ spec:
   tls:
     - hosts:
         - bs.st.dita.hasankarimi.ir
-      secretName: basic-scheduler
+      secretName: basic-scheduler-tls
   rules:
     - host: bs.st.dita.hasankarimi.ir
       http:

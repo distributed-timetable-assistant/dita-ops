@@ -3,7 +3,7 @@ kind: Certificate
 metadata:
   name: pgadmin
 spec:
-  secretName: pgadmin
+  secretName: pgadmin-tls
   dnsNames:
     - "pgadmin.st.dita.hasankarimi.ir"
   issuerRef:

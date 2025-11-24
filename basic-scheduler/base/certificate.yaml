@@ -3,7 +3,7 @@ kind: Certificate
 metadata:
   name: basic-scheduler
 spec:
-  secretName: basic-scheduler
+  secretName: basic-scheduler-tls
   dnsNames:
     - "bs.st.dita.hasankarimi.ir"
   issuerRef:

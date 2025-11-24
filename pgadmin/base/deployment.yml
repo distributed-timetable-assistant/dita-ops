@@ -22,8 +22,6 @@ spec:
                 name: pgadmin
             - secretRef:
                 name: pgadmin
-            - secretRef:
-                name: postgres
           ports:
             - name: http
               containerPort: 80

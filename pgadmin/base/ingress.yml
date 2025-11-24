@@ -7,7 +7,7 @@ spec:
   tls:
     - hosts:
         - pgadmin.st.dita.hasankarimi.ir
-      secretName: pgadmin
+      secretName: pgadmin-tls
   rules:
     - host: pgadmin.st.dita.hasankarimi.ir
       http:

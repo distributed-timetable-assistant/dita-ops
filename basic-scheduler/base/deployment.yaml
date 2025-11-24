@@ -15,13 +15,11 @@ spec:
     spec:
       containers:
         - name: basic-scheduler
-          image: backendd/dta.basic-scheduler:latest
+          image: backendd/dita.basic-scheduler:latest
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
                 name: basic-scheduler
-            - secretRef:
-                name: postgres
           ports:
             - name: http
               containerPort: 3000

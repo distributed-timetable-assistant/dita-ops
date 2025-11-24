@@ -1,10 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: dta
+namespace: dita
 
 images:
-  - name: backendd/dta.basic-scheduler
+  - name: backendd/dita.basic-scheduler
     newTag: v0.0.2
 
 resources:
