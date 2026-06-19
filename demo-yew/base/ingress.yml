@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: demo-yew
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - demo-yew.outi.ir
+      secretName: demo-yew-tls
+  rules:
+    - host: demo-yew.outi.ir
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: demo-yew
+                port:
+                  name: http

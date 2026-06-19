@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-yew
+spec:
+  revisionHistoryLimit: 0
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-yew
+  template:
+    metadata:
+      labels:
+        app: demo-yew
+    spec:
+      containers:
+        - name: demo-yew
+          image: backendd/dita.demo-yew:latest
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 80
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 0m
+              memory: 0Mi
