@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flutter-web
+spec:
+  revisionHistoryLimit: 0
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flutter-web
+  template:
+    metadata:
+      labels:
+        app: flutter-web
+    spec:
+      containers:
+        - name: flutter-web
+          image: mmoojj/dita-web:1.0.0
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 80
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 0m
+              memory: 0Mi

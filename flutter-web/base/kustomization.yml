@@ -1,0 +1,5 @@
+resources:
+  - certificate.yml
+  - deployment.yml
+  - ingress.yml
+  - service.yml

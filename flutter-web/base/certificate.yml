@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: flutter-web
+spec:
+  secretName: flutter-web-tls
+  dnsNames:
+    - "demo-flutter.outi.ir"
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer

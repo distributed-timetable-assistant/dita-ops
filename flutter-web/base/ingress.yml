@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: flutter-web
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - demo-flutter.outi.ir
+      secretName: flutter-web-tls
+  rules:
+    - host: demo-flutter.outi.ir
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: flutter-web
+                port:
+                  number: 80

@@ -10,6 +10,7 @@ jobs:
           - postgres
           - pgadmin
           - basic-scheduler
+          - flutter-web
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
