@@ -9,3 +9,15 @@ spec:
   issuerRef:
     name: letsencrypt
     kind: ClusterIssuer
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: outi
+spec:
+  secretName: outi-tls
+  dnsNames:
+    - "outi.ir"
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
