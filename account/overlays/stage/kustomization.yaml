@@ -4,8 +4,8 @@ kind: Kustomization
 namespace: dita
 
 images:
-  - name: backendd/dita.account
-    newTag: latest
+- name: backendd/dita.account
+  newTag: v0.1.0
 
 resources:
-  - ../../base
+- ../../base
