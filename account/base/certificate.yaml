@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: account
+spec:
+  secretName: account-tls
+  dnsNames:
+    - "account.st.dita.hasankarimi.ir"
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer

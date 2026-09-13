@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: account
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - account.st.dita.hasankarimi.ir
+      secretName: account-tls
+  rules:
+    - host: account.st.dita.hasankarimi.ir
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: account
+                port:
+                  name: http
