@@ -20,6 +20,8 @@ spec:
           env:
             - name: APP__LISTEN_ADDR
               value: "0.0.0.0:8080"
+            - name: PP_KRATOS__ADMIN_URL
+              value: "http://kratos:4434"
           ports:
             - name: http
               containerPort: 8080
