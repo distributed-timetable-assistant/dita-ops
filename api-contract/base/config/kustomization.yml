@@ -1,0 +1,9 @@
+generatorOptions:
+  disableNameSuffixHash: true
+
+configMapGenerator:
+  - name: api-contract
+    files:
+      - account.yml
+      - basic-scheduler.yml
+      - calendar.yml

@@ -1,0 +1,11 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: api-contract
+spec:
+  secretName: api-contract-tls
+  dnsNames:
+    - "api-contract.st.dita.hasankarimi.ir"
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer

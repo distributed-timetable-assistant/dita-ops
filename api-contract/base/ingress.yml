@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pgadmin
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - api-contract.st.dita.hasankarimi.ir
+      secretName: api-contract-tls
+  rules:
+    - host: api-contract.st.dita.hasankarimi.ir
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: api-contract
+                port:
+                  name: http

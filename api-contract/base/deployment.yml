@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-contract
+spec:
+  revisionHistoryLimit: 0
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-contract
+  template:
+    metadata:
+      labels:
+        app: api-contract
+    spec:
+      containers:
+        - name: api-contract
+          image: docker.swagger.io/swaggerapi/swagger-ui:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: URLS
+              value: |
+                [
+                  { "url": "/contracts/account.yml", "name": "Account" },
+                  { "url": "/contracts/basic-scheduler.yml", "name": "Basic Scheduler" },
+                  { "url": "/contracts/calendar.yml", "name": "Calendar" }
+                ]
+            - name: OAUTH_CLIENT_ID
+              value: "dita-web"
+            - name: OAUTH_USE_PKCE
+              value: "true"
+            - name: OAUTH_ADDITIONAL_PARAMS
+              value: |
+                {
+                  "audience": "dita-web"
+                }
+          ports:
+            - name: http
+              containerPort: 8080
+          volumeMounts:
+            - name: contracts
+              mountPath: /usr/share/nginx/html/contracts
+              readOnly: true
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 0m
+              memory: 0Mi
+      volumes:
+        - name: contracts
+          configMap:
+            name: api-contract
+

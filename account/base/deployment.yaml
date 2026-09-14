@@ -22,6 +22,10 @@ spec:
               value: "0.0.0.0:8080"
             - name: APP__KRATOS__ADMIN_URL
               value: "http://kratos.iam:4434"
+            - name: APP__AUTH__PRINCIPAL_HEADER
+              value: "X-Auth-Request-User"
+            - name: RUST_LOG
+              value: info
           ports:
             - name: http
               containerPort: 8080

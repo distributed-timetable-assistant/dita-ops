@@ -1,0 +1,146 @@
+openapi: 3.1.0
+
+info:
+  title: DiTA Account API
+  version: 0.1.0
+  description: |
+    Public API for accessing the authenticated user's account.
+    
+    Authentication is provided through an OAuth 2.0 / OpenID Connect
+    access token issued by Ory Hydra.
+
+servers:
+  - url: https://account.st.dita.hasankarimi.ir
+    description: Staging
+
+security:
+  - oidc: []
+
+paths:
+  /me:
+    get:
+      operationId: getCurrentAccount
+      summary: Get the current account
+      description: |
+        Returns the account associated with the authenticated user's
+        identity.
+        
+        The identity is resolved from the authenticated OAuth 2.0
+        access token and the account information is retrieved from
+        Ory Kratos.
+
+      security:
+        - oidc: []
+
+      responses:
+        '200':
+          description: Current account
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+              example:
+                id: c4da5d35-fdb5-4fb9-9382-21656e5bb8f3
+                email: hasankarimi.dev@gmail.com
+                first_name: Hasan
+                last_name: Karimi
+                username: hasankarimi_dev
+                avatar_url: https://avatars.githubusercontent.com/u/28773259?v=4
+                state: active
+
+        '401':
+          description: Authentication required
+
+        '404':
+          description: Account not found
+
+components:
+  securitySchemes:
+    oidc:
+      type: oauth2
+      description: |
+        OAuth 2.0 / OpenID Connect authentication using an access token
+        issued by Ory Hydra.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://auth.outi.ir/oauth2/auth
+          tokenUrl: https://auth.outi.ir/oauth2/token
+          scopes:
+            openid: OpenID Connect authentication
+            offline_access: Request a refresh token
+            profile: Access basic profile information
+            email: Access the user's email address
+
+  schemas:
+    Account:
+      type: object
+      description: |
+        The authenticated user's account information.
+        
+        Account data is sourced from the corresponding Ory Kratos
+        identity.
+
+      required:
+        - id
+        - email
+        - first_name
+        - last_name
+        - username
+        - avatar_url
+        - state
+
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Ory Kratos identity identifier.
+          example: c4da5d35-fdb5-4fb9-9382-21656e5bb8f3
+
+        email:
+          type: string
+          format: email
+          description: User's email address.
+          example: hasankarimi.dev@gmail.com
+
+        first_name:
+          type:
+            - string
+            - "null"
+          description: User's first name.
+          example: Hasan
+
+        last_name:
+          type:
+            - string
+            - "null"
+          description: User's last name.
+          example: Karimi
+
+        username:
+          type:
+            - string
+            - "null"
+          description: User's username.
+          example: hasankarimi_dev
+
+        avatar_url:
+          type:
+            - string
+            - "null"
+          format: uri
+          description: URL of the user's avatar.
+          example: https://avatars.githubusercontent.com/u/28773259?v=4
+
+        state:
+          type: string
+          enum:
+            - active
+            - inactive
+          description: |
+            Current state of the user's Ory Kratos identity.
+            
+            Ory Kratos currently defines two identity states:
+            `active` and `inactive`.
+            
+            An inactive identity is disabled and cannot authenticate.
+          example: active
