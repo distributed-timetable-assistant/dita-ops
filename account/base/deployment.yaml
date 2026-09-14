@@ -25,7 +25,13 @@ spec:
             - name: APP__AUTH__PRINCIPAL_HEADER
               value: "X-Auth-Request-User"
             - name: RUST_LOG
-              value: info
+              value: "info"
+            # Immediately return unused memory pages to the OS.
+            - name: MIMALLOC_PURGE_DELAY
+              value: "0"
+            # Disable Transparent Huge Pages to minimize memory footprint.
+            - name: MIMALLOC_ALLOW_THP
+              value: "0"
           ports:
             - name: http
               containerPort: 8080
