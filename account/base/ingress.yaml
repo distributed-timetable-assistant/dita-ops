@@ -14,10 +14,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - account.st.dita.hasankarimi.ir
+        - dita-account.hasankarimi.ir
       secretName: account-tls
   rules:
-    - host: account.st.dita.hasankarimi.ir
+    - host: dita-account.hasankarimi.ir
       http:
         paths:
           - path: /

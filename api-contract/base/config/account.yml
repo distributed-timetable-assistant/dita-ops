@@ -10,7 +10,7 @@ info:
     access token issued by Ory Hydra.
 
 servers:
-  - url: https://account.st.dita.hasankarimi.ir
+  - url: https://dita-account.hasankarimi.ir
     description: Staging
 
 security:

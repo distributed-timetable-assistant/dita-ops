@@ -5,7 +5,7 @@ metadata:
 spec:
   secretName: account-tls
   dnsNames:
-    - "account.st.dita.hasankarimi.ir"
+    - "dita-account.hasankarimi.ir"
   issuerRef:
     name: letsencrypt
     kind: ClusterIssuer

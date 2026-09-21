@@ -5,7 +5,7 @@ metadata:
 spec:
   secretName: api-contract-tls
   dnsNames:
-    - "api-contract.st.dita.hasankarimi.ir"
+    - "dita-api-contract.hasankarimi.ir"
   issuerRef:
     name: letsencrypt
     kind: ClusterIssuer

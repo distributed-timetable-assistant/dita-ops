@@ -6,10 +6,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - api-contract.st.dita.hasankarimi.ir
+        - dita-api-contract.hasankarimi.ir
       secretName: api-contract-tls
   rules:
-    - host: api-contract.st.dita.hasankarimi.ir
+    - host: dita-api-contract.hasankarimi.ir
       http:
         paths:
           - path: /

@@ -6,10 +6,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - pgadmin.st.dita.hasankarimi.ir
+        - dita-pgadmin.hasankarimi.ir
       secretName: pgadmin-tls
   rules:
-    - host: pgadmin.st.dita.hasankarimi.ir
+    - host: dita-pgadmin.hasankarimi.ir
       http:
         paths:
           - path: /
